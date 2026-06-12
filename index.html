@@ -375,33 +375,18 @@
 
   function bloquearInput(nomeDisplay) {
     const chatSection = document.getElementById('chatSection');
-    const tyPage      = document.getElementById('thankYouPage');
+    const headlineSub = document.querySelector('.headline-sub');
 
     // Esconder o chat com fade out
     chatSection.style.transition = 'opacity 0.4s ease';
     chatSection.style.opacity = '0';
 
     setTimeout(() => {
-      // Esconder tudo do chat
       chatSection.style.display = 'none';
-
-      // Construir a página de agradecimento com o nome e a mensagem final
-      tyPage.innerHTML = `
-        <div class="ty-icon">
-          <svg viewBox="0 0 28 28" fill="none">
-            <path d="M5 14.5l6 6 12-12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div class="ty-eyebrow">Ceci no Mundo</div>
-        <h2 class="ty-title">Proposta a<br><span>caminho</span> ✈️</h2>
-        <div class="ty-message">
-          Adorei conhecer-te! Já tenho tudo o que preciso para encontrar a viagem certa para ti. A tua proposta chega em breve ao teu email — foi um gosto falar contigo! ✈️
-        </div>
-        <div class="ty-divider"></div>
-        <div class="ty-footer">Os teus dados são tratados com total confidencialidade.<br>Sem spam, prometido.</div>
-      `;
-
-      tyPage.classList.add('visible');
+      // Substituir apenas o texto da headline-sub
+      if (headlineSub) {
+        headlineSub.textContent = 'Agradecemos pela confiança e partilha. A Ceci já está a trabalhar na tua proposta personalizada — em menos de 24h tens tudo no teu email. ✈️';
+      }
     }, 400);
   }
 
